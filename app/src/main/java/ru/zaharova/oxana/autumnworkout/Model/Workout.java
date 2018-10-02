@@ -1,6 +1,8 @@
 package ru.zaharova.oxana.autumnworkout.Model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 public class Workout {
 
@@ -23,6 +25,10 @@ public class Workout {
         this.recordRepsCount = repsCount;
         this.recordDate = date;
         this.recordWeight = weight;
+    }
+
+    public String getFormattedRecordDate(){
+        return new SimpleDateFormat("dd MMMM yyyy", Locale.ROOT).format(recordDate);
     }
 
     public String getTitle() {
