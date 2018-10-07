@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Осенний воркаут</string>
+    <string name="date_text">Дата: </string>
+    <string name="reps_count_text">Число повторений: </string>
+    <string name="weight_text">Вес: </string>
+    <string name="kg">кг.</string>
+    <string name="save">Сохранить</string>
+    <string name="saved_record_message">Рекорд сохранен!!!</string>
+    <string name="not_saved_record_message">Вы не побили рекорд :(</string>
+    <string name="number_count_message">Введите число повторений</string>
+</resources>
