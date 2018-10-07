@@ -5,4 +5,7 @@
     <string name="weight_text">Weight: </string>
     <string name="kg">kg.</string>
     <string name="save">Save</string>
+    <string name="saved_record_message">Record saved!!!</string>
+    <string name="not_saved_record_message">You did not break the record :(</string>
+    <string name="number_count_message">Enter the number of repetitions</string>
 </resources>
