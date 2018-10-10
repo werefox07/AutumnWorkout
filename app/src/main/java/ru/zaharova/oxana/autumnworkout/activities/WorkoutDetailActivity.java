@@ -1,5 +1,6 @@
 package ru.zaharova.oxana.autumnworkout.activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -28,13 +29,15 @@ public class WorkoutDetailActivity extends AppCompatActivity {
    private EditText repsCountEditText;
    private Button saveRecordButton;
    private Workout workout;
+   private Button shareButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout_detail);
 
-        workout = new Workout("Подтягивания", "Подтягивание на перекладине", 0,
+        workout = new Workout(getString(R.string.pull_ups_text),
+                getString(R.string.pull_ups_description), 0,
                 new Date(), 0);
         initGUI(workout);
         addListeners();
@@ -57,6 +60,9 @@ public class WorkoutDetailActivity extends AppCompatActivity {
 
             }
         });
+
+
+
         saveRecordButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,8 +99,28 @@ public class WorkoutDetailActivity extends AppCompatActivity {
                     toast.setGravity(Gravity.CENTER, 0, 0);
                     toast.show();
                 }
+            }
+        });
 
-
+        shareButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                String textToSend = getString(R.string.share_hello_record_text) +
+                        "\n" + getString(R.string.exercise_share_text) + " "+ workout.getTitle() +
+                        "\n" + getString(R.string.weight_text) + " " + workout.getRecordWeight() +
+                        "\n" + getString(R.string.reps_count_text) + " " + workout.getRecordRepsCount();
+                intent.putExtra(Intent.EXTRA_TEXT, textToSend);
+                try
+                {
+                    startActivity(Intent.createChooser(intent, getString(R.string.share_record_text)));
+                }
+                catch (android.content.ActivityNotFoundException ex)
+                {
+                    Toast.makeText(getApplicationContext(),
+                            getString(R.string.share_error_text), Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
@@ -111,13 +137,12 @@ public class WorkoutDetailActivity extends AppCompatActivity {
         recordDate = findViewById(R.id.workout_detail_record_date);
         recordRepsCount = findViewById(R.id.workout_detail_record_reps_count);
         recordWeight = findViewById(R.id.workout_detail_record_weight);
-        description = findViewById(R.id.workout_detail_description);
-        description.setText(workout.getDescription());
 
         weight = findViewById(R.id.workout_detail_weight);
         weightSeekBar = findViewById(R.id.workout_detail_seek_bar);
         repsCountEditText = findViewById(R.id.workout_detail_reps_count_edit_text);
         saveRecordButton = findViewById(R.id.workout_detail_save_button);
+        shareButton = findViewById(R.id.share_button);
         setValues();
 
     }
