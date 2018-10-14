@@ -39,12 +39,13 @@ public class WorkoutDetailActivity extends AppCompatActivity {
    private Button saveRecordButton;
    private Workout workout;
    private Button shareButton;
+   public static final String TAG = "WorkoutDetailActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout_detail);
-
+        Log.d(TAG, "Вызван onCreate");
         workout = new Workout(getString(R.string.pull_ups_text),
                 getString(R.string.pull_ups_description), 0,
                 new Date(), 0);
@@ -199,7 +200,7 @@ public class WorkoutDetailActivity extends AppCompatActivity {
         savedInstanceState.putInt("repsCount", workout.getRecordRepsCount());
         savedInstanceState.putInt("weight", workout.getRecordWeight());
         savedInstanceState.putString("date", workout.getFormattedRecordDate());
-        Log.d("WorkoutListActivity111", "Вызван onSaveInstanceState");
+        Log.d(TAG, "Вызван onSaveInstanceState");
         super.onSaveInstanceState(savedInstanceState);
     }
 
@@ -213,10 +214,50 @@ public class WorkoutDetailActivity extends AppCompatActivity {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        Log.d("WorkoutDetailActivity", "Вызван onRestoreInstanceState");
+        Log.d(TAG, "Вызван onRestoreInstanceState");
         setValues();
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d(TAG, "Вызван onStart()");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d(TAG, "Вызван onResume()");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d(TAG, "Вызван onPause()");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d(TAG, "Вызван onStop()");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.d(TAG, "Вызван onRestart()");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d(TAG, "Вызван onDestroy()");
+        Log.e(TAG, "Вызван onDestroy()");
+        Log.v(TAG, "Вызван onDestroy()");
+        Log.i(TAG, "Вызван onDestroy()");
+        Log.v(TAG, "Вызван onDestroy()");
+        Log.wtf(TAG, "Вызван onDestroy()");
+    }
 
 
 
