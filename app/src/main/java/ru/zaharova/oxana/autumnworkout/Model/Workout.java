@@ -1,5 +1,7 @@
 package ru.zaharova.oxana.autumnworkout.Model;
 
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -29,6 +31,11 @@ public class Workout {
 
     public String getFormattedRecordDate(){
         return new SimpleDateFormat("dd MMMM yyyy", Locale.ROOT).format(recordDate);
+    }
+
+    public void setRecordDateFromFormattedString(String stringDate) throws ParseException {
+        DateFormat dateFormat= new SimpleDateFormat("dd MMMM yyyy", Locale.ROOT);
+        this.setRecordDate(dateFormat.parse(stringDate));
     }
 
     public String getTitle() {

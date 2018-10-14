@@ -19,4 +19,7 @@
     <string name="pull_ups_text">Подтягивания</string>
     <string name="pull_ups_description">Подтягивание на перекладине</string>
     <string name="recods_text">Мои рекорды</string>
+    <string name="share_menu">Поделиться</string>
+    <string name="settings">Настройки</string>
+    <string name="quit">Выход</string>
 </resources>
