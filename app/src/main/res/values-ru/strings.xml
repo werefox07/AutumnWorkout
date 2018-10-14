@@ -8,4 +8,15 @@
     <string name="saved_record_message">Рекорд сохранен!!!</string>
     <string name="not_saved_record_message">Вы не побили рекорд :(</string>
     <string name="number_count_message">Введите число повторений</string>
+    <string name="pull_ups">Подтягивания</string>
+    <string name="push_ups">Отжимания</string>
+    <string name="squats">Приседания</string>
+    <string name="share_text">Поделиться</string>
+    <string name="share_hello_record_text">Смотри, у меня новый рекорд!!!</string>
+    <string name="exercise_share_text">Упражнение:</string>
+    <string name="share_record_text">Поделиться рекордом</string>
+    <string name="share_error_text">Ошибка</string>
+    <string name="pull_ups_text">Подтягивания</string>
+    <string name="pull_ups_description">Подтягивание на перекладине</string>
+    <string name="recods_text">Мои рекорды</string>
 </resources>
