@@ -22,4 +22,6 @@
     <string name="share_menu">Share</string>
     <string name="settings">Settings</string>
     <string name="quit">Quit</string>
+    <string name="title_mock_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, incidunt.</string>
+    <string name="description_mock_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae cum earum, itaque laboriosam natus quas quis quod temporibus totam unde. Atque dolor dolorem enim impedit molestias nemo porro rem voluptatum!</string>
 </resources>
