@@ -24,7 +24,9 @@ import java.util.Date;
 import java.util.Locale;
 
 import ru.zaharova.oxana.autumnworkout.Model.Workout;
+import ru.zaharova.oxana.autumnworkout.Model.WorkoutList;
 import ru.zaharova.oxana.autumnworkout.R;
+import ru.zaharova.oxana.autumnworkout.utils.Constants;
 
 public class WorkoutDetailActivity extends AppCompatActivity {
    private TextView title;
@@ -45,10 +47,10 @@ public class WorkoutDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout_detail);
+        Intent intent = getIntent();
+        int index = intent.getIntExtra(Constants.WORKOUT_INDEX, 0);
         Log.d(TAG, "Вызван onCreate");
-        workout = new Workout(getString(R.string.pull_ups_text),
-                getString(R.string.pull_ups_description), 0,
-                new Date(), 0);
+        workout = WorkoutList.getInstance().getWorkouts().get(index);
         initGUI(workout);
         addListeners();
     }
