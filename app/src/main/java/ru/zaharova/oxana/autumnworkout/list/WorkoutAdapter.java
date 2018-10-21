@@ -37,4 +37,8 @@ public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutViewHolder> {
     public int getItemCount() {
         return workoutList != null ? workoutList.size() : 0;
     }
+
+    public void addWorkout(Workout workout) {
+        this.workoutList.add(workout);
+    }
 }
