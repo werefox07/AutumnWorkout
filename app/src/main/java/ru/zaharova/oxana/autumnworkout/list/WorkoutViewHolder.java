@@ -10,7 +10,8 @@ import android.widget.TextView;
 
 import ru.zaharova.oxana.autumnworkout.Model.Workout;
 import ru.zaharova.oxana.autumnworkout.R;
-import ru.zaharova.oxana.autumnworkout.activities.WorkoutDetailActivity;
+import ru.zaharova.oxana.autumnworkout.fragments.WorkoutDetailFragment;
+import ru.zaharova.oxana.autumnworkout.interfaces.OnListItemClickListener;
 import ru.zaharova.oxana.autumnworkout.utils.Constants;
 
 class WorkoutViewHolder extends RecyclerView.ViewHolder {
@@ -32,7 +33,7 @@ class WorkoutViewHolder extends RecyclerView.ViewHolder {
 
     }
 
-    public void bindView(final Workout workout, final int index) {
+    public void bindView(final Workout workout, final int index, final OnListItemClickListener listener) {
         title.setText(workout.getTitle());
         description.setText(workout.getDescription());
         recordWeight.setText(String.valueOf(workout.getRecordWeight()));
@@ -41,10 +42,7 @@ class WorkoutViewHolder extends RecyclerView.ViewHolder {
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Context context = itemView.getContext();
-                Intent intent = new Intent(itemView.getContext(), WorkoutDetailActivity.class);
-                intent.putExtra(Constants.WORKOUT_INDEX, index);
-                context.startActivity(intent);
+                listener.onListItemClickListener(index);
 
             }
         });

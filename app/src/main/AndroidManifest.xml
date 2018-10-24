@@ -10,10 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activities.WorkoutDetailActivity"
+            android:name=".fragments.WorkoutDetailFragment"
             android:configChanges="orientation|screenSize"
-            android:parentActivityName=".activities.WorkoutListActivity"></activity>
-        <activity android:name=".activities.WorkoutListActivity">
+            android:parentActivityName=".fragments.WorkoutListFragment" />
+        <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
