@@ -1,6 +1,5 @@
 package ru.zaharova.oxana.autumnworkout.fragments;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -9,8 +8,6 @@ import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -20,13 +17,14 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.text.ParseException;
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
+
 import java.util.Date;
 
 import ru.zaharova.oxana.autumnworkout.Model.Workout;
 import ru.zaharova.oxana.autumnworkout.Model.WorkoutList;
 import ru.zaharova.oxana.autumnworkout.R;
-import ru.zaharova.oxana.autumnworkout.utils.Constants;
 
 public class WorkoutDetailFragment extends Fragment {
     private static final String WORKOUT_INDEX = "workoutIndex";
@@ -57,7 +55,7 @@ public class WorkoutDetailFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.activity_workout_detail, container, false);
+        View root = inflater.inflate(R.layout.fragment_workout_detail, container, false);
         workout = WorkoutList.getInstance().getWorkouts().get(getArguments().getInt(WORKOUT_INDEX));
         initGUI(root, workout);
         addListeners();
@@ -163,6 +161,10 @@ public class WorkoutDetailFragment extends Fragment {
         shareButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                YoYo.with(Techniques.Tada)
+                        .duration(700)
+                        .repeat(5)
+                        .playOn(shareButton);
                 final Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("text/plain");
                 String textToSend = getString(R.string.share_hello_record_text) +

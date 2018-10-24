@@ -28,6 +28,10 @@ public class MainActivity extends AppCompatActivity implements OnListItemClickLi
     @Override
     public void onListItemClickListener(int index) {
         WorkoutDetailFragment detailFragment = WorkoutDetailFragment.initFragment(index);
-        fragmentManager.beginTransaction().replace(R.id.container, detailFragment).commit();
+        fragmentManager
+                .beginTransaction()
+                .add(R.id.container, detailFragment)
+                .addToBackStack("")
+                .commit();
     }
 }
